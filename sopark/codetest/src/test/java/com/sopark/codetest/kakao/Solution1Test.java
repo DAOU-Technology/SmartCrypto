@@ -1,10 +1,12 @@
 package com.sopark.codetest.kakao;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class Solution1Test {
 
@@ -14,10 +16,10 @@ public class Solution1Test {
         Solution1 solution = new Solution1();
 
         // When
-        Integer[] result = solution.solution(new Integer[]{1, 4, 4, 8});
+        List<Integer> result = solution.solution(Arrays.asList(1, 4, 4, 8));
 
         // That
-        assertThat(Arrays.toString(result)).isEqualTo(Arrays.toString(new int[]{1,2,2,3}));
+        assertThat(result).isEqualTo(Arrays.asList(1, 2, 2, 3));
     }
 
     @Test
@@ -26,9 +28,17 @@ public class Solution1Test {
         Solution1 solution = new Solution1();
 
         // When
-        Integer[] result = solution.solution(new Integer[]{1,3,7,3});
+        List<Integer> result = solution.solution(Arrays.asList(18, 60, 92, 35, 5, 97, 65));
 
         // That
-        assertThat(Arrays.toString(result)).isEqualTo(Arrays.toString(new int[]{1,2,3,2}));
+        Assert.assertEquals(Arrays.asList(
+                2,
+                4,
+                6,
+                3,
+                1,
+                7,
+                5), result);
+
     }
 }

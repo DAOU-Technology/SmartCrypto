@@ -5,22 +5,31 @@ import java.util.Collections;
 import java.util.List;
 
 public class Solution2 {
-    public List<Integer> solution(List<Integer> inputData, List<Integer> rotation){
+    public static List<Integer> getMaxElementIndexes(List<Integer> a, List<Integer> rotate) {
+
+        int max = a.get(0);
+        int maxIndex = 0;
+        for (int i = 0; i < a.size(); i++) {
+            int num = a.get(i);
+            if (num > max) {
+                max = num;
+                maxIndex = i;
+            }
+        }
+
         List<Integer> result = new ArrayList<>();
-        int max = Collections.max(inputData);
-        int maxIndex = inputData.indexOf(max);
-        for(int index : rotation) {
-            int rotationCount = index % inputData.size() ;
-            if(rotationCount == 0) {
+        for (int count : rotate) {
+            int cnt = count % a.size();
+            if (cnt == 0) {
                 result.add(maxIndex);
                 continue;
             }
-            int diff = maxIndex - rotationCount;
+            int diff = maxIndex - cnt;
 
-            if(diff >= 0) {
+            if (diff >= 0) {
                 result.add(diff);
-            }else {
-                result.add(inputData.size() + diff);
+            } else {
+                result.add(a.size() + diff);
             }
         }
 

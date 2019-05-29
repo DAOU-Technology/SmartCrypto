@@ -4,9 +4,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Solution1 {
-    public Integer[] solution(Integer[] data) {
-        Set<Integer> numbers = Arrays.stream(data).collect(Collectors.toSet());
+    public List<Integer> solution(List<Integer> issuePriorities) {
+        Set<Integer> numbers = new HashSet<>(issuePriorities);
         List<Integer> list = numbers.stream().sorted().collect(Collectors.toList());
-        return Arrays.stream(data).map(integer -> list.indexOf(integer) + 1).toArray(Integer[]::new);
+        return issuePriorities.stream().map(integer -> list.indexOf(integer) + 1).collect(Collectors.toList());
     }
 }

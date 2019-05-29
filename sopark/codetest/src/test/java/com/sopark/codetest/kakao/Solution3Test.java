@@ -5,94 +5,64 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 public class Solution3Test {
-
     @Test
-    public void aaaa(){
-        // Given
-        String aa = "1234";
-        // When
-        System.out.println(Integer.valueOf(String.valueOf(aa.charAt(0))));
+    public void findRange() {
+        assertThat(Solution3.findMaxValue(909)).isEqualTo(999);
+        assertThat(Solution3.findMinValue(909)).isEqualTo(101);
+        assertThat(Solution3.findRange(909)).isEqualTo(898);
 
-        // Then
+        assertEquals(1, Solution3.findMinValue(2));
+        assertEquals(8, Solution3.findRange(2));
+        assertEquals(8, Solution3.findRange(1));
+        assertEquals(8, Solution3.findRange(9));
 
+        // case1
+        assertEquals(10, Solution3.findMinValue(10));
+        assertEquals(90, Solution3.findMaxValue(10));
+        assertEquals(80, Solution3.findRange(10));
+
+        // case2
+        assertEquals(11, Solution3.findMinValue(11));
+        assertEquals(88, Solution3.findRange(11));
     }
 
     @Test
-    public void solution() {
-        // Given
-        Solution3 solution = new Solution3();
+    public void findMinValue() {
+        assertEquals(9, Solution3.findMaxValue(1));
+        assertEquals(9, Solution3.findMaxValue(2));
+        assertEquals(9, Solution3.findMaxValue(9));
+        assertEquals(90, Solution3.findMaxValue(10));
+        assertEquals(99, Solution3.findMaxValue(11));
+        assertEquals(92, Solution3.findMaxValue(12));
 
-        // When
-        int result = solution.solution(123512);
+        assertEquals(1, Solution3.findMinValue(1));
+        assertEquals(1, Solution3.findMinValue(2));
+        assertEquals(1, Solution3.findMinValue(3));
+        assertEquals(1, Solution3.findMinValue(4));
+        assertEquals(10, Solution3.findMinValue(10));
+        assertEquals(11, Solution3.findMinValue(11));
+        assertEquals(10, Solution3.findMinValue(12));
+        assertEquals(10, Solution3.findMinValue(13));
+        assertEquals(10, Solution3.findMinValue(20));
+        assertEquals(11, Solution3.findMinValue(21));
+        assertEquals(11, Solution3.findMinValue(22));
+        assertEquals(13, Solution3.findMinValue(23));
+        assertEquals(101, Solution3.findMinValue(121));
+        assertEquals(101, Solution3.findMinValue(131));
+        assertEquals(110, Solution3.findMinValue(112));
 
-        // Then
-        assertThat(result).isEqualTo(820082);
+        assertEquals(923592, Solution3.findMaxValue(123512));
+        assertEquals(113511, Solution3.findMinValue(223512));
+        assertEquals(103510, Solution3.findMinValue(123512));
+
+        assertEquals(100000000, Solution3.findMinValue(100000000));
+        assertEquals(900000000, Solution3.findMaxValue(100000000));
+        assertEquals(800000000, Solution3.findRange(100000000));
+
+
     }
 
-
-    @Test
-    public void solution2() {
-        // Given
-        Solution3 solution = new Solution3();
-
-        // When
-        int result = solution.solution(999999);
-
-        // Then
-        assertThat(result).isEqualTo(820082);
-    }
-
-    @Test
-    public void solution3(){
-        Solution3 solution3 = new Solution3();
-        assertThat(solution3.findMaxValue(123512)).isEqualTo(923592);
-        assertThat(solution3.findMinValue(123512)).isEqualTo(103510);
-        assertThat(solution3.solution(123512)).isEqualTo(820082);
-
-        assertThat(solution3.findMaxValue(909)).isEqualTo(999);
-        assertThat(solution3.findMinValue(909)).isEqualTo(101);
-        assertThat(solution3.solution(909)).isEqualTo(898);
-
-        assertThat(solution3.findMaxValue(999)).isEqualTo(888);
-        assertThat(solution3.findMinValue(999)).isEqualTo(111);
-        assertThat(solution3.solution(999)).isEqualTo(777);
-
-        assertThat(solution3.findMaxValue(1)).isEqualTo(9);
-        assertThat(solution3.findMinValue(1)).isEqualTo(2);
-        assertThat(solution3.solution(1)).isEqualTo(7);
-
-        assertThat(solution3.findMaxValue(9)).isEqualTo(8);
-        assertThat(solution3.findMinValue(9)).isEqualTo(1);
-        assertThat(solution3.solution(9)).isEqualTo(7);
-
-        assertThat(solution3.findMaxValue(111)).isEqualTo(999);
-        assertThat(solution3.findMinValue(111)).isEqualTo(222);
-        assertThat(solution3.solution(111)).isEqualTo(777);
-    }
-
-    @Test
-    public void findMaxValue(){
-        // Given
-        Solution3 solution3 = new Solution3();
-
-        // When
-        int maxValue = solution3.findMaxValue(123512);
-
-        // Then
-        assertThat(maxValue).isEqualTo(923592);
-    }
-
-    @Test
-    public void findMinValue(){
-        // Given
-        Solution3 solution3 = new Solution3();
-
-        // When
-        int minValue = solution3.findMinValue(123512);
-
-        // Then
-        assertThat(minValue).isEqualTo(103510);
-    }
 }
